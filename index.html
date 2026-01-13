@@ -15,8 +15,6 @@
 <body class="min-h-screen bg-[#1E1D27] text-gray-200">
 
  <div class="h-screen flex gap-3 p-3 max-w-[1720px] max-h-[900px] mx-auto my-auto">
-
-
     <!-- Sidebar -->
     <aside class="w-24 p-3 hidden md:flex flex-col text-gray-200">
       <div class="px-3 mb-10">
@@ -35,114 +33,111 @@
 
       <!-- Menu -->
       <section class="w-full md:w-[70%]">
-
         <nav class="flex items-center justify-between p-4 border-b border-black/20">
           <div>
-            <h4 class="font-semibold">AU Canteen System</h4>
+            <h4 class="font-semibold text-2xl">AU Canteen System</h4>
           </div>
 
-          <input
-            type="text"
-            placeholder="Search"
-            class="px-3 py-1 rounded bg-[#1E1D27] text-sm outline-none"
-          />
+          <!-- Search -->
+          <div class="relative w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+            <input
+              type="text"
+              placeholder="Search food..."
+              class="w-full pl-9 pr-3 py-2 rounded-lg bg-[#1E1D27] text-sm text-gray-200 placeholder-gray-400 outline-none focus:ring-2 focus:ring-yellow-400 transition"
+            />
+          </div>
         </nav>
 
+
         <div class="p-4">
-    <!-- Category -->
-        <div class="flex max-w-lg gap-3">
+            <!-- Category -->
+            <div class="flex max-w-lg gap-3">
 
-          <!-- Meals -->
-          <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
-            <i class="fa-solid fa-plate-wheat text-white"></i>
-            <h4 class="text-white font-medium">Meals</h4>
-          </div>
+              <!-- Meals -->
+              <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
+                <i class="fa-solid fa-plate-wheat text-white"></i>
+                <h4 class="text-white font-medium">Meals</h4>
+              </div>
 
-          <!-- Snacks -->
-          <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
-            <i class="fa-solid fa-cookie-bite text-white"></i>
-            <h4 class="text-white font-medium">Snacks</h4>
-          </div>
+              <!-- Snacks -->
+              <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
+                <i class="fa-solid fa-cookie-bite text-white"></i>
+                <h4 class="text-white font-medium">Snacks</h4>
+              </div>
 
-          <!-- Drinks -->
-          <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
-            <i class="fa-solid fa-glass-water text-white"></i>
-            <h4 class="text-white font-medium">Drinks</h4>
-          </div>
+              <!-- Drinks -->
+              <div class="flex items-center gap-2 py-2 px-4 rounded-lg bg-gray-900 cursor-pointer hover:scale-105 transition">
+                <i class="fa-solid fa-glass-water text-white"></i>
+                <h4 class="text-white font-medium">Drinks</h4>
+              </div>
 
-        </div>
-
+            </div>
           <!-- Food -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 ">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5">
 
-                <!-- Food Card -->
-                <div class="bg-[#3E3D2F] rounded-lg p-3 ">
-                    
-                    <!-- Fake Image -->
-                    <div class="h-28 bg-[#D9D9D9] rounded-md mb-3"></div>
+            <!-- Food Card -->
+            <div class="bg-[#3E3D2F] rounded-lg p-3 h-[220px] flex flex-col justify-between">
+              <div class="h-28 bg-[#D9D9D9] rounded-md"></div>
 
-                    <!-- Info -->
-                    <h4 class="font-semibold text-sm">Chicken Meal</h4>
-                    <p class="text-xs text-gray-300 mb-3">₱120.00</p>
+              <div>
+                <h4 class="font-semibold text-sm">Chicken Meal</h4>
+                <p class="text-xs text-gray-300">₱120.00</p>
+              </div>
 
-                    <!-- Button -->
-                    <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
-                    Add to Cart
-                    </button>
-                </div>
-                <!-- Food Card -->
-                <div class="bg-[#3E3D2F] rounded-lg p-3 ">
-                    
-                    <!-- Fake Image -->
-                    <div class="h-28 bg-[#D9D9D9] rounded-md mb-3"></div>
+              <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
+                Add to Cart
+              </button>
+            </div>
 
-                    <!-- Info -->
-                    <h4 class="font-semibold text-sm">Chicken Meal</h4>
-                    <p class="text-xs text-gray-300 mb-3">₱120.00</p>
+            <!-- Food Card -->
+            <div class="bg-[#3E3D2F] rounded-lg p-3 h-[220px] flex flex-col justify-between">
+              <div class="h-28 bg-[#D9D9D9] rounded-md"></div>
 
-                    <!-- Button -->
-                    <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
-                    Add to Cart
-                    </button>
-                </div>
-                <!-- Food Card -->
-                <div class="bg-[#3E3D2F] rounded-lg p-3 ">
-                    
-                    <!-- Fake Image -->
-                    <div class="h-28 bg-[#D9D9D9] rounded-md mb-3"></div>
+              <div>
+                <h4 class="font-semibold text-sm">Burger Steak</h4>
+                <p class="text-xs text-gray-300">₱135.00</p>
+              </div>
 
-                    <!-- Info -->
-                    <h4 class="font-semibold text-sm">Chicken Meal</h4>
-                    <p class="text-xs text-gray-300 mb-3">₱120.00</p>
+              <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
+                Add to Cart
+              </button>
+            </div>
 
-                    <!-- Button -->
-                    <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
-                    Add to Cart
-                    </button>
-                </div>
-                <!-- Food Card -->
-                <div class="bg-[#3E3D2F] rounded-lg p-3 ">
-                    
-                    <!-- Fake Image -->
-                    <div class="h-28 bg-[#D9D9D9] rounded-md mb-3"></div>
+            <!-- Food Card -->
+            <div class="bg-[#3E3D2F] rounded-lg p-3 h-[220px] flex flex-col justify-between">
+              <div class="h-28 bg-[#D9D9D9] rounded-md"></div>
 
-                    <!-- Info -->
-                    <h4 class="font-semibold text-sm">Chicken Meal</h4>
-                    <p class="text-xs text-gray-300 mb-3">₱120.00</p>
+              <div>
+                <h4 class="font-semibold text-sm">Spaghetti Meal</h4>
+                <p class="text-xs text-gray-300">₱110.00</p>
+              </div>
 
-                    <!-- Button -->
-                    <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
-                    Add to Cart
-                    </button>
-                </div>
+              <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
+                Add to Cart
+              </button>
+            </div>
 
-      
-            </div>   
-        </div>
+            <!-- Food Card -->
+            <div class="bg-[#3E3D2F] rounded-lg p-3 h-[220px] flex flex-col justify-between">
+              <div class="h-28 bg-[#D9D9D9] rounded-md"></div>
 
-      </section>
+              <div>
+                <h4 class="font-semibold text-sm">Rice Bowl</h4>
+                <p class="text-xs text-gray-300">₱95.00</p>
+              </div>
 
-     <aside class="w-full md:w-[30%] bg-[#2B2A35] p-4 rounded-lg text-gray-200">
+              <button class="w-full py-1.5 rounded bg-black text-white text-xs hover:bg-black/80">
+                Add to Cart
+              </button>
+            </div>
+
+          </div>
+      </div>
+
+    </section>
+
+    <aside class="w-full md:w-[30%] bg-[#2B2A35] p-4 rounded-t-r-lg rounded-b-r-lg text-gray-200">
         <!-- Header -->
         <div class="flex justify-between items-center mb-4">
           <h4 class="font-semibold text-2xl">Order</h4>
@@ -206,4 +201,5 @@
   </div>
 
 </body>
+<script src="script.js"></script>
 </html>
