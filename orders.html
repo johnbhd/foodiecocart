@@ -3,115 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orders Page || FoodieCart</title>
+  <title>Home Page || FoodieCart</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
   <link rel="shortcut icon" href="./imgs/aulogo.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/order-page.css"/>
 </head>
 
-<body class="min-h-screen bg-[#1E1D27] text-gray-200">
+<body>
 
- <div class="h-screen flex gap-3 p-3 max-w-[1720px] max-h-[900px] mx-auto my-auto">
+<div class="container">
 
-    <!-- Sidebar -->
-    <aside
-      id="sidebar"
-      class="fixed inset-y-0 left-0 z-50 w-64 bg-[#1E1D27] text-gray-200
-            transform -translate-x-full transition-transform duration-300
-            md:translate-x-0 md:static md:w-24 px-3 py-2 flex flex-col"
-    >
-
-      <!-- Logo -->
-      <img src="./imgs/aulogo.png" alt="AU LOGO" class="w-20 mx-auto my-4">
-
-      <!-- Navigation -->
-      <nav class="space-y-4 py-5 text-center">
-        <a href="./index.html" class="block px-3 py-2 rounded hover:bg-gray-700 text-lg">Home</a>
-        <a href="./orders.html" class="block px-3 py-2 rounded hover:bg-gray-700 text-lg">Orders</a>
-        <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700 text-lg">Profile</a>
-        <a href="#" class="block px-3 py-2 rounded hover:bg-gray-700 text-lg">Settings</a>
-      </nav>
-    </aside>
-    <div
-      id="overlay"
-      class="fixed inset-0 bg-black/40 z-40 hidden md:hidden"
-    ></div>
-    <div
-      id="toast"
-      class="fixed inset-0 z-50 hidden flex items-center justify-center
-            bg-black/40 backdrop-blur-sm"
-    >
-      <div
-        id="toast-box"
-        class="flex items-center gap-4
-              bg-[#FFFFFF] text-[#1E1D27]
-              px-6 py-4 sm:px-7 sm:py-4 lg:px-10 lg:py-6
-              rounded-2xl shadow-2xl
-              border border-black/10a
-              transition-all duration-300 scale-95 opacity-0"
-      >
-        <div class="flex items-center justify-center
-                    w-10 h-10 lg:w-12 lg:h-12
-                    rounded-full bg-green-100">
-          <i class="fa-solid fa-check text-green-600 text-lg lg:text-xl"></i>
-        </div>
-
-        <span
-          id="toast-message"
-          class="font-semibold text-sm sm:text-base lg:text-lg"
-        ></span>
-      </div>
+  <!-- Sidebar -->
+  <aside class="sidebar sidebar-hidden" id="sidebar">
+    <img src="./imgs/aulogo.png" alt="AU LOGO">
+    <nav>
+    <div class="search-box" id="search-mobile" >
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="food-search" placeholder="Search food...">
     </div>
+      <a href="./index.html">Home</a>
+      <a href="./orders.html">Orders</a>
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
 
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
 
+  <!-- Main Content -->
+  <main class="main">
 
+    <section class="menu-section" style="width: 100%; height: 100vh;">
 
-    <!-- Main -->
-    <main class="flex flex-col md:flex-row w-full bg-[#D2D2D2] rounded-bl-lg h-full overflow-y-auto md:overflow-hidden ">
+      <!-- Top Navigation -->
+      <div class="top-nav" >
 
-      <!-- Menu -->
-      <section class="w-full">
-        <nav class="bg-[#1E1D27] flex items-center justify-between p-4 border-b border-black/20">
-
-          <div class="flex items-center gap-3">
-            <button
-              id="menu-btn"
-              class="md:hidden text-white text-2xl focus:outline-none"
-            >
-              <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <h4 class="font-bold text-2xl text-white ml-3 md:ml-0">AU Canteen System</h4>
+        <div class="nav-left" >
+          <div class="title-mobile">
+              <button id="menu-btn" class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <h4>AU Canteen System</h4>
           </div>
-        
-        </nav>
-        <div class="flex flex-col md:flex-row gap-4 mt-4 p-4 overflow-y-auto h-screen pb-[20vh] mb:pb-[20vh]">
-            <div class="flex-1 bg-red-100 rounded-lg p-4 flex flex-col">
-                <h3 class="font-bold text-lg md:text-xl mb-3 text-red-800">New Orders</h3>
-                <div id="new-orders" class="flex flex-col gap-3 overflow-y-auto h-[400px]"></div>
-            </div>
-
-            <div class="flex-1 bg-white rounded-lg p-4 flex flex-col">
-                <h3 class="font-bold text- md:text-xl mb-3 text-gray-800">Preparing</h3>
-                <div id="preparing-orders" class="flex flex-col gap-3 overflow-y-auto h-[400px]"></div>
-            </div>
-
-            <div class="flex-1 bg-blue-100 rounded-lg p-4 flex flex-col">
-                <h3 class="font-bold text-lg md:text-xl mb-3 text-blue-800">Ready</h3>
-                <div id="ready-orders" class="flex flex-col gap-3 overflow-y-auto h-[400px]"></div>
-            </div>
+         
         </div>
 
-      </section>
+        <div class="search-box" id="search-desktop">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text"  class="food-search" placeholder="Search food...">
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="orders-grid">
+          <!-- New Orders -->
+          <div class="order-column new">
+            <h3>New Orders</h3>
+            <div id="new-orders" class="order-list"></div>
+          </div>
+          <!-- Preparing -->
+          <div class="order-column preparing">
+            <h3>Preparing</h3>
+            <div id="preparing-orders" class="order-list"></div>
+          </div>
+          <!-- Ready -->
+          <div class="order-column ready">
+            <h3>Ready</h3>
+            <div id="ready-orders" class="order-list"></div>
+          </div>
+
+        </div>
       
-    </main>
-
-  </div>
-
-</body>
+      </div>
+    </section>
+  </main>
+</div>
+<script type="module" src="./script/homepage.js"></script>
+<script type="module" src="./script/script.js"></script>
 <script type="module" src="./script/orders.js"></script>
+</body>
 </html>

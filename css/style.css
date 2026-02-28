@@ -1,0 +1,200 @@
+/* ===== BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #1E1D27;
+  color: #e5e5e5;
+}
+
+.container {
+  display: flex;
+  gap: 15px;
+  max-width: 1720px;
+  height: 100vh;
+  margin: auto;
+}
+
+/* ===== MAIN ===== */
+.main {
+  display: flex;
+  width: 100%;
+  background: #D2D2D2;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+/* content */
+.content {
+  padding: 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 160px;
+  background: #1E1D27;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.sidebar img {
+  width: 80px;
+  margin: 20px auto;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  color: #e5e5e5;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  background: #444;
+}
+
+/* mobile hidden */
+.sidebar-hidden {
+  transform: translateX(-100%);
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 10;
+}
+
+.overlay.show {
+  display: block;
+}
+
+/* ===== HAMBURGER ===== */
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+/* ===== MENU SECTION ===== */
+.menu-section {
+  overflow-y: auto;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* top navigation */
+.top-nav {
+  background: #1E1D27;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.top-nav h4 {
+  font-size: 22px;
+  color: white;
+}
+
+/* search */
+.search-box {
+  position: relative;
+  width: 350px;
+}
+#search-mobile {
+  display: none;
+}
+.search-box input {
+  width: 100%;
+  padding: 8px 10px 8px 35px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.search-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+   .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .nav-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+  }
+  .title-mobile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .cart-icon {
+    font-size: 20px;
+    padding-right: 10px;
+    cursor: pointer;
+  }
+  .search-box {
+    width: auto;
+    margin: 10px 20px;
+  }
+  #search-mobile {
+    display: flex;
+  }
+  #search-desktop {
+    display: none;
+  }
+  .sidebar {
+    position: absolute;
+    z-index: 999;
+    height: 100vh;
+  }
+  
+}
+
+/* hide hamburger on desktop */
+@media (min-width: 769px) {
+  
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .overlay {
+    display: none !important;
+  }
+}
