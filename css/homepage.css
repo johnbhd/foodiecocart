@@ -1,0 +1,87 @@
+
+/* categories */
+.categories {
+  display: flex;
+  gap: 10px;
+  max-width: 500px;
+}
+
+.category-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #1E1D27;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-btn:hover {
+  transform: scale(1.05);
+}
+
+.category-btn h4 {
+  font-size: 16px;
+  color: white;
+}
+
+/* active category */
+.active-category {
+  background: #dc2626;
+}
+
+/* food grid */
+.food-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ===== ORDER SECTION ===== */
+.order-section {
+  width: 30%;
+  background: #1E1D27;
+  padding: 20px;
+}
+.content {
+  overflow-y: auto;
+}
+.order-section h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+ 
+  .menu-section,
+  .order-section {
+    width: 100%;
+  }
+  
+  .food-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .order-section {
+    display: none;
+  }
+  .menu-section {
+    height: 100vh;
+  }
+}
+
+/* hide hamburger on desktop */
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+  .cart-div {
+    display: none;
+  }
+  
+}

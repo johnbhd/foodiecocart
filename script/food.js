@@ -34,22 +34,22 @@ export function FoodData() {
     {
       id: 5,
       img: "../imgs/food/chips/mr-chips-mini.jpg",
-      category: "Chips",
-      name: "Mr. Chips (Mini)",
+      category: "Snack",
+      name: "Mr. Chips",
       price: 8
     },
     {
       id: 6,
       img: "../imgs/food/chips/chippy-mini.png",
-      category: "Chips",
-      name: "Chippy (Mini)",
+      category: "Snack",
+      name: "Chippy",
       price: 8
     },
     {
       id: 7,
       img: "../imgs/food/chips/roller-coaster-mini.jpg",
-      category: "Chips",
-      name: "Roller Coaster (Mini)",
+      category: "Snack",
+      name: "Roller Coaster",
       price: 8
     },
 

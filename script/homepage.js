@@ -4,48 +4,40 @@ import { renderCart } from "./cart.js";
 import { renderFoods, renderCategory, renderSearch } from "./classFunction.js";
 import { showToast } from "./utils.js";
 
-// import food data
 const foods = FoodData();
 foodImportAll(foods);
 
-// variables
-const foodList = document.getElementById('food-list');
-const orderCart = document.getElementById('order-cart');
-const categoryFilter = document.getElementById("category-filter");
-const searchInput = document.querySelectorAll(".food-search");
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
+const foodList = document.getElementById("food-list");
+const orderCart = document.getElementById("order-cart");
+const orderSection = document.querySelector(".order-section");
+const categoryFilter = document.querySelector(".categories");
+const searchInput = document.querySelectorAll(".search-box input");
 
-function openSidebar() {
-  sidebar.classList.remove("-translate-x-full");
-  overlay.classList.remove("hidden");
-}
+const cartIcon = document.getElementById("cart-div");
 
-function closeSidebar() {
-  sidebar.classList.add("-translate-x-full");
-  overlay.classList.add("hidden");
-}
 
-menuBtn.addEventListener("click", openSidebar);
-overlay.addEventListener("click", closeSidebar);
-// food show
+cartIcon.addEventListener("click", () => {
+  if (orderSection.style.display !== "block") {
+    orderSection.style.display = "block";
+  } else {
+    orderSection.style.display = "none";
+  }
+})
+
+
+
 renderFoods(foods, foodList);
+renderCart(orderCart);
 
-// add to cart
 foodList.addEventListener("click", (e) => {
-  if (e.target.tagName !== "BUTTON") return;
+  const button = e.target.closest("button");
+  if (!button) return;
 
-  const id = Number(e.target.dataset.id);
-
+  const id = Number(button.dataset.id);
   addToCart(id);
+  renderCart(orderCart);
   showToast("Added to cart!");
-
 });
-
-
-// cart order
-renderCart(orderCart)
 
 orderCart.addEventListener("click", (e) => {
   const deleteBtn = e.target.closest(".delete-item");
@@ -57,14 +49,13 @@ orderCart.addEventListener("click", (e) => {
   cart = cart.filter(item => item.id !== id);
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  window.location.reload();
-  renderCart();
+  renderCart(orderCart);
 });
 
+if (categoryFilter) {
+  renderCategory(foods, categoryFilter, foodList);
+}
 
-// category
-renderCategory(foods, categoryFilter, foodList);
-
-
-// search 
-renderSearch(searchInput, foods, foodList);
+if (searchInput.length) {
+  renderSearch(searchInput, foods, foodList);
+}

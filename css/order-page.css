@@ -1,0 +1,134 @@
+/* ===== ORDERS GRID ===== */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+/* ===== ORDER COLUMN BASE ===== */
+.order-column {
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  overflow: hidden;
+}
+
+/* NEW ORDERS (light red bg, red text) */
+.order-column.new {
+  background: #ffe5e5;
+  color: #dc2626;
+}
+
+/* PREPARING (white bg, black text) */
+.order-column.preparing {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* READY (light blue bg, blue text) */
+.order-column.ready {
+  background: #e6f2ff;
+  color: #1e40af;
+}
+
+/* column header */
+.order-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* list scroll */
+.order-list {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== ORDER ITEM ===== */
+.order-item {
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 10px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* order header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-id {
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.order-date {
+  font-size: 12px;
+  color: #666;
+}
+
+/* items list */
+.order-list-items {
+  list-style: disc;
+  padding-left: 18px;
+  font-size: 13px;
+}
+
+/* actions */
+.order-actions {
+  margin-top: 6px;
+}
+
+/* move button */
+.move-btn {
+  background: #facc15;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.move-btn:hover {
+  opacity: 0.9;
+}
+
+/* status badges */
+.status-new {
+  background: #dc2626;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.status-preparing {
+  background: #f59e0b;
+  color: white;
+}
+
+.status-ready {
+  background: #10b981;
+  color: white;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-column {
+    height: auto;
+  }
+}
