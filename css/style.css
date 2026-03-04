@@ -16,7 +16,6 @@ body {
   display: flex;
   gap: 15px;
   max-width: 1720px;
-  height: 100vh;
   margin: auto;
 }
 

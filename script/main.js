@@ -16,7 +16,6 @@ const searchInput = document.querySelectorAll(".search-box input");
 
 const cartIcon = document.getElementById("cart-div");
 
-
 cartIcon.addEventListener("click", () => {
   if (orderSection.style.display !== "block") {
     orderSection.style.display = "block";
@@ -24,8 +23,6 @@ cartIcon.addEventListener("click", () => {
     orderSection.style.display = "none";
   }
 })
-
-
 
 renderFoods(foods, foodList);
 renderCart(orderCart);

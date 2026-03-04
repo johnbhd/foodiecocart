@@ -8,30 +8,60 @@
     <link rel="stylesheet" href="./css/auth.css">
 </head>
 <body>
+    <header>
+        <nav class="nav">
+            <div class="con-nav">
+                <div class="nav-title">
+                    <img src="./imgs/aulogo.png" alt="AU Logo">
+                    <h4>AUFoodieCo</h4>
+                </div>
 
-<div class="container">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Developers</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="con-main">
+                <div class="hero-title">
+                    <h2>AUFoodieCo: <span class="hero-span">Self-Service Canteen Ordering System </span></h2>
+                    <p>
+                       A web-based kiosk system that makes canteen ordering faster and easier for students and staff                    </p>
+                    <div class="hero-btn">
+                       <button class="btn-about">About the System</button>
+                        <button class="btn-features">System Features</button>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="authForm">
+                        <img src="./imgs/aulogo.png" alt="Logo">
+                        <h4 id="form-title">Login Page</h4>
+                        <div class="form-fields">
+                            <label>Email:</label>
+                            <input type="text" id="txtEmail" required >
 
-    <form action="" method="post" id="loginform">
-        <img src="./imgs/aulogo.png" alt="Logo">
-        <h4>Login Page</h4>
+                            <label style="padding-top: 10px;">Password:</label>
+                            <div class="passwordField">
+                                <input type="password" id="txtPassword" required>
+                                <i class="fa-solid fa-eye icon" id="passwordToggle"></i>
+                            </div>
+                            <button type="submit" class="btn" id="btn-login">Login</button>
+                            
+                        </div>
+                    </div>
+                    <button class="btn-auth" id="auth-btn">Dont have account? <u>Register here.</u> </button>
+                </div>
+            </div>
+        </section>
 
-        <label>Email:</label>
-        <input type="text" id="txtEmail" required> <br>
-
-        <label>Password:</label>
-        <div class="passwordField">
-            <input type="password" id="txtPassword" required>
-            <i class="fa-solid fa-eye icon" id="passwordToggle"></i>
-        </div>
-
-        <input type="submit" value="Login" class="btn">
-        
-        <p class="link-register">Dont have account? <a href="./pages/register.html">Register here.</a></p>
-    </form>
-
-</div>
-
-<script src="./script/modules/auth/showPassword.js"></script>
-<script src="./script/modules/auth/auth.js"></script>
+    </main>
+    <footer>
+        <p>&copy; <span id="year">2026 </span> AUFoodieCo</p>
+    </footer>
+<script type="module" src="./script/modules/auth/auth.js"></script>
 </body>
 </html>
