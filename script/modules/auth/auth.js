@@ -100,9 +100,9 @@ authBtn.addEventListener("click", () => {
     isLogin = false;
     authBtn.innerHTML = `Already have account? <u>Login here.</u>`;
   } else {
-    renderLogin();
+    window.location.reload()
     isLogin = true;
-    authBtn.innerHTML = `Don't have account? <u>Register here.</u>`;
+  
   }
 });
 

@@ -9,7 +9,7 @@
 body {
   min-height: 100vh;
   background: #1E1D27;
-  color: #e5e5e5;
+
 }
 
 .container {
@@ -26,8 +26,9 @@ body {
   background: #D2D2D2;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
+  min-height: 900px;
+  max-height: 1500px; /* or whatever feels reasonable */
 }
-
 /* content */
 .content {
   padding: 20px;
@@ -40,6 +41,11 @@ body {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+}
+.sidebar h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  color: #e5e5e5;
 }
 
 .sidebar img {
@@ -188,7 +194,9 @@ body {
 
 /* hide hamburger on desktop */
 @media (min-width: 769px) {
-  
+  .menu-btn {
+    display: none;
+  }
   .sidebar {
     transform: translateX(0) !important;
   }
