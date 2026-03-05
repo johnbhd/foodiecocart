@@ -11,6 +11,12 @@ body {
     align-items: center;
     height: 100vh; */
     background-color: #1E1D27;
+}
+main {
+    background: linear-gradient(to right, #1E1D27, #1e1d27e8),
+  url("../imgs/aubg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 .nav {
@@ -55,6 +61,27 @@ nav ul {
     display: flex;
     gap: 20px; 
 }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.show {
+  display: block;
+} 
+/* ===== HAMBURGER ===== */
+.menu-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 .con-main {
     max-width: 1200px;
     margin: 0 auto;
@@ -68,7 +95,7 @@ nav ul {
     gap: 15px;
     padding: 40px 0;
 }
-.hero-title h2{
+.hero-title h1{
     color: white;
     font-size: 3.5rem;
 }
@@ -219,10 +246,7 @@ footer {
     color: #646363;
 }
 @media (max-width: 768px) {
-    nav ul {
-        gap: 5px;
-    }
-    .hero-title h2 { 
+    .hero-title h1 { 
         font-size: 2rem;
     }
     .hero-title {
@@ -256,4 +280,81 @@ footer {
     footer {
         padding: 10px 30px;
     }
+    .nav {
+        position: relative;   /* make sure children z-index works */
+        background: rgba(30, 29, 39, 0.6);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000; 
+    }
+    .nav-links {
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background-color: #2d2c36;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px 20px;
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+    .nav-links li a{
+        font-size: 1.5rem;
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+    .menu-btn {
+        display: block;
+    }
+    .nav-title {
+        display: flex;
+        align-items: center;
+        
+    }
+}
+@media (max-width: 1024px) { 
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* full viewport height */
+    }
+    .hero-title h1 { 
+        font-size: 2rem;
+    }
+    .hero-title {
+        padding: 20px 10px;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .con-main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;     
+        padding: 20px 20px;
+    }
+    .hero-title p {
+         max-width: none;
+    }
+    .hero-btn {
+        justify-content: center; 
+    }
+    main {
+        flex: 1;
+    }
+    footer {
+        width: 100%;
+    }
+}
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none;
+  }
+  .overlay.show {
+    display: none;
+  }
 }

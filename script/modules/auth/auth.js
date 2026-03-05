@@ -3,6 +3,32 @@ import { showPassword } from "./showPassword.js";
 const authBtn = document.getElementById("auth-btn");
 const formTitle = document.getElementById("form-title");
 const fieldDiv = document.querySelector(".form-fields");
+const menuBtn = document.getElementById('menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const overlay = document.querySelector('.overlay');
+const btnAbout = document.querySelector(".btn-about");
+const btnFeatures = document.querySelector(".btn-features");
+const year = document.getElementById("year");
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+year.textContent = currentYear;
+
+btnAbout.addEventListener('click', () => {
+  window.location.href = "./pages/features.html"
+})
+btnFeatures.addEventListener('click', () => {
+  window.location.href = "./pages/developers.html"
+})
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+  overlay.classList.toggle('show')
+});
+overlay.addEventListener('click', () => {
+  navLinks.classList.remove('show');
+  overlay.classList.remove('show');
+})
 let isLogin = true;
 
 const users = [
