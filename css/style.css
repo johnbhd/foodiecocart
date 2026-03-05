@@ -9,14 +9,13 @@
 body {
   min-height: 100vh;
   background: #1E1D27;
-  color: #e5e5e5;
+
 }
 
 .container {
   display: flex;
   gap: 15px;
   max-width: 1720px;
-  height: 100vh;
   margin: auto;
 }
 
@@ -27,8 +26,9 @@ body {
   background: #D2D2D2;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
+  min-height: 900px;
+  max-height: 1500px; /* or whatever feels reasonable */
 }
-
 /* content */
 .content {
   padding: 20px;
@@ -40,7 +40,13 @@ body {
   background: #1E1D27;
   display: flex;
   flex-direction: column;
+  align-items: center;
   transition: transform 0.3s ease;
+}
+.sidebar h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  color: #e5e5e5;
 }
 
 .sidebar img {
@@ -52,7 +58,6 @@ body {
   display: block;
   padding: 10px;
   border-radius: 6px;
-  text-align: center;
   color: #e5e5e5;
   text-decoration: none;
   margin-bottom: 10px;
@@ -63,7 +68,9 @@ body {
 .sidebar nav a:hover {
   background: #444;
 }
-
+.sidebar nav a span {
+  margin-left: 5px;
+}
 /* mobile hidden */
 .sidebar-hidden {
   transform: translateX(-100%);
@@ -189,7 +196,9 @@ body {
 
 /* hide hamburger on desktop */
 @media (min-width: 769px) {
-  
+  .menu-btn {
+    display: none;
+  }
   .sidebar {
     transform: translateX(0) !important;
   }

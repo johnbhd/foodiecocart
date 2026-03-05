@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page || FoodieCart</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="shortcut icon" href="../../imgs/aulogo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <link rel="stylesheet" href="../../css/admin/dashboard.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+   <aside class="sidebar sidebar-hidden" id="sidebar">
+    <img src="../../imgs/aulogo.png" alt="AU LOGO">
+    <h2>Admin</h2>
+    <nav>
+      <a href="./dashboard.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+      </a>
+      <a href="./user-management.html">
+          <i class="fa-regular fa-user"></i>    
+          <span>Users</span>
+      </a>
+      <a href="./menu-management.html">
+          <i class="fas fa-list"></i>
+          <span>Menu</span>
+      </a>
+      <a href="./order-management.html">
+          <i class="fas fa-box"></i>
+          <span>Orders</span>
+      </a>
+      <a href="/index.html">
+          <i class="fas fa-sign-out-alt"></i>  
+          <span>Logout</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <section class="menu-section" style="width: 100%;">
+      <!-- Top Navigation -->
+      <div class="top-nav">
+        <div class="nav-left">
+          <div class="title-mobile">
+              <button id="menu-btn" class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <h4>AU Canteen System</h4>
+          </div>
+        </div>
+      </div>
+      <!-- Main -->
+      <div class="content">
+        <!-- Card -->
+        <div class="card-dashboard"></div>
+
+        <!-- Chart and Recent Orders -->
+        <div class="dashboard-nd">
+          <div class="dashboard-chart">
+            <canvas id="myChart" width="400" height="200"></canvas>
+          </div>
+          <div class="dashboard-recent">
+            <div class="recent-title">
+              <h4>Recents Orders</h4>
+              <p>Latest orders from your canteen are displayed below.</p>
+            </div>
+            <!-- Card Recent orders -->
+            <div class="recent-card">
+                <div class="recent-wrapper">
+                  <div class="recent-header">
+                    <span>Order Id</span>
+                    <span>Items</span>
+                    <span>Status</span>
+                    <span>Time</span>
+                  </div>
+                  <div class="recent-orders">
+                    <div class="orders-card">
+                      <span>#12321</span>
+                      <span>Adobo Rice <span>(2 pcs)</span></span>
+                      <span class="status-new">New</span>
+                      <span>9:30 am</span>
+                    </div>
+                    <div class="orders-card">
+                      <span>#12321</span>
+                      <span>Adobo Rice <span>(2 pcs)</span></span>
+                      <span class="status-pending">Pending</span>
+                      <span>9:30 am</span>
+                    </div>
+                    <div class="orders-card">
+                      <span>#12321</span>
+                      <span>Adobo Rice <span>(2 pcs)</span></span>
+                      <span class="status-ready">Ready</span>
+                      <span>9:30 am</span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+</div>
+<script type="module" src="../../script/modules/utils/script.js"></script>
+<script type="module" src="../../script/admin/dashboard/dashboard.js"></script>
+</body>
+
+</html>

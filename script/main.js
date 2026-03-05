@@ -1,8 +1,8 @@
-import { foodImportAll, addToCart } from "./modules/localstorage.js";
-import { FoodData } from "./modules/food.js";
-import { renderCart } from "./modules/cart.js";
-import { renderFoods, renderCategory, renderSearch } from "./modules/classFunction.js";
-import { showToast } from "./modules/utils.js";
+import { foodImportAll, addToCart } from "./modules/utils/localstorage.js";
+import { FoodData } from "./modules/food/food.js";
+import { renderCart } from "./modules/cart/cart.js";
+import { renderFoods, renderCategory, renderSearch } from "./modules/utils/classFunction.js";
+import { showToast } from "./modules/utils/utils.js";
 import { testFirebase } from "./app.js"
 
 const foods = FoodData();
@@ -16,7 +16,6 @@ const searchInput = document.querySelectorAll(".search-box input");
 
 const cartIcon = document.getElementById("cart-div");
 
-
 cartIcon.addEventListener("click", () => {
   if (orderSection.style.display !== "block") {
     orderSection.style.display = "block";
@@ -24,8 +23,6 @@ cartIcon.addEventListener("click", () => {
     orderSection.style.display = "none";
   }
 })
-
-
 
 renderFoods(foods, foodList);
 renderCart(orderCart);
