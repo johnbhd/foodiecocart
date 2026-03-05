@@ -2,47 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login Page</title>
+    <title>AUFoodieCo | Self-Service Canteen Ordering System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <meta name="description" content="AUFoodieCo is Arellano University's self-service canteen ordering system. Students and staff can browse the AU canteen menu, place orders online, and skip long queues using the AUFoodieCo kiosk.">
+    <meta name="keywords" content="AU Canteen, Arellano University Canteen, Arellano Canteen System, AUFoodieCo Arellano University, AUFoodieCo Canteen, Arellano University Food Ordering, AU Kiosk Ordering System">
+    <meta name="author" content="AUFoodieCo Developers">
+
+    <meta property="og:title" content="AUFoodieCo - Self Service Canteen Ordering System">
+    <meta property="og:description" content="A web-based kiosk system that makes canteen ordering faster and easier for students and staff.">
+    <meta property="og:image" content="https://aufoodieco.vercel.app/imgs/aulogo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aufoodieco.vercel.app/">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="canonical" href="https://aufoodieco.vercel.app/">
+    <meta name="robots" content="index, follow">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="./css/auth.css">
+    <link rel="shortcut icon" href="./imgs/aufoodieco-logo.ico" type="image/x-icon">
+
+    <meta name="google-site-verification" content="DCTjoSv6ghgUewN0kimPjfe5fJKLVDUHd9ZcYh-WKmg" />
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AUFoodieCo",
+    "applicationCategory": "WebApplication",
+    "description": "A web-based kiosk system that makes canteen ordering faster and easier for students and staff.",
+    "operatingSystem": "Web",
+    "url": "https://aufoodieco.vercel.app/"
+    }
+    </script>
+
 </head>
 <body>
+    <div id="overlay" class="overlay"></div>
     <header>
         <nav class="nav">
             <div class="con-nav">
                 <div class="nav-title">
-                    <img src="./imgs/aulogo.png" alt="AU Logo">
+                    <img src="./imgs/aulogo.png" alt="AUFoodieCo Canteen Ordering System Logo">
                     <h4>AUFoodieCo</h4>
                 </div>
+                <button id="menu-btn" class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
 
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Developers</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./pages/features.html">Features</a></li>
+                    <li><a href="./pages/developers.html">Developers</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <section>
+        <section class="hero">
             <div class="con-main">
                 <div class="hero-title">
-                    <h2>AUFoodieCo: <span class="hero-span">Self-Service Canteen Ordering System </span></h2>
+                    <h1>AUFoodieCo: <span class="hero-span">Self-Service Canteen Ordering System</span></h1>
                     <p>
-                       A web-based kiosk system that makes canteen ordering faster and easier for students and staff                    </p>
+                       AUFoodieCo is the self-service canteen system for Arellano University (AU). 
+Students and staff can now order food at the AU canteen quickly using the AUFoodieCo kiosk.       </p>
                     <div class="hero-btn">
-                       <button class="btn-about">About the System</button>
-                        <button class="btn-features">System Features</button>
+                       <button class="btn-about" aria-label="Learn more about the system">About the System</button>
+                        <button class="btn-features" aria-label="System Features">System Features</button>
                     </div>
                 </div>
                 <div class="wrapper">
                     <div class="authForm">
-                        <img src="./imgs/aulogo.png" alt="Logo">
+                        <img src="./imgs/aulogo.png" alt="AUFoodieCo Canteen Ordering System Logo">
                         <h4 id="form-title">Login Page</h4>
                         <div class="form-fields">
                             <label>Email:</label>
-                            <input type="text" id="txtEmail" required >
+                            <input type="email" id="txtEmail" required >
 
                             <label style="padding-top: 10px;">Password:</label>
                             <div class="passwordField">
@@ -53,14 +90,14 @@
                             
                         </div>
                     </div>
-                    <button class="btn-auth" id="auth-btn">Dont have account? <u>Register here.</u> </button>
+                    <button class="btn-auth" id="auth-btn">Don't have account? <u>Register here.</u> </button>
                 </div>
             </div>
         </section>
 
     </main>
     <footer>
-        <p>&copy; <span id="year">2026 </span> AUFoodieCo</p>
+        <p>&copy; <span id="year"></span> AUFoodieCo</p>
     </footer>
 <script type="module" src="./script/modules/auth/auth.js"></script>
 </body>
