@@ -5,23 +5,53 @@ export function showToast(message) {
 
   text.textContent = message;
 
-  toast.classList.remove("hidden");
-  toast.classList.add("flex");
+  toast.classList.add("show");
 
-  // animate in
   setTimeout(() => {
-    box.classList.remove("scale-95", "opacity-0");
-    box.classList.add("scale-100", "opacity-100");
+    box.classList.add("show");
   }, 10);
 
-  // animate out
   setTimeout(() => {
-    box.classList.add("scale-95", "opacity-0");
+    box.classList.remove("show");
   }, 1800);
 
   setTimeout(() => {
-    toast.classList.add("hidden");
-    toast.classList.remove("flex");
-    window.location.reload();
-  }, 1200);
+    toast.classList.remove("show");
+  }, 2200);
+}
+
+export function createToast(message, type="success") {
+
+  const container = document.getElementById("toast-container");
+
+  const toast = document.createElement("div");
+  toast.className = `toastValidation ${type}`;
+
+  const icon = type === "success"
+    ? `<i class="fa-solid fa-check"></i>`
+    : `<i class="fa-solid fa-xmark"></i>`;
+
+  toast.innerHTML = `
+    ${icon}
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(()=>{
+    toast.style.animation = "toastOut .35s forwards";
+  },2500);
+
+  setTimeout(()=>{
+    toast.remove();
+  },2900);
+}
+
+/* shortcuts */
+export function toastSuccess(msg){
+  createToast(msg,"success");
+}
+
+export function toastError(msg){
+  createToast(msg,"error");
 }

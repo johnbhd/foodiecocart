@@ -94,6 +94,8 @@ export function checkoutOrder(cart, total) {
     status: "new"
   };
 
+  showToast(`Order #${newOrder.id} placed! Total: ₱${total.toFixed(2)}`);
+  
   orders.push(newOrder);
   localStorage.setItem("orders", JSON.stringify(orders));
   localStorage.setItem("cart", JSON.stringify([]));
@@ -102,5 +104,7 @@ export function checkoutOrder(cart, total) {
   
   renderCart(document.getElementById("order-cart"));
 
-  showToast(`Order #${newOrder.id} placed! Total: ₱${total.toFixed(2)}`);
+  setTimeout(()=>{
+    window.location.href = "/pages/orders.html"
+  },2000);
 }

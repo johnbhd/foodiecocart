@@ -20,7 +20,8 @@
     color: white;
     background: #1E1D27;
     padding: 40px 30px;
-    width: 350px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
@@ -139,4 +140,12 @@
 
 .modal-btn button:last-child:hover{
     background-color: rgb(156, 144, 144);
+}
+
+
+@media (max-width: 768px) { 
+    .modal {
+        margin: 20px;
+    }
+
 }
