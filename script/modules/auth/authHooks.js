@@ -54,19 +54,33 @@ export async function doLogin() {
     console.error("Error login: ",error);
   }
 }
-
 export async function doRegister() {
   const email = document.getElementById("txtEmail").value;
   const password = document.getElementById("txtPassword").value;
+  const confirmPassword = document.getElementById("confirmPasswordInput").value;
+
   const name = email.split("@")[0];
   const role = "user";
-  
-  const confirmPassword = document.getElementById("confirmPasswordInput").value;
+
   if (!email.includes("@")) {
     alert("Email must contain @");
     return;
   }
-  if(password === confirmPassword) {
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+  try {
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      alert("Email already registered! Try another email.");
+      return;
+    }
+
     await addDoc(collection(db, "users"), {
       name: name,
       email: email,
@@ -74,12 +88,11 @@ export async function doRegister() {
       role: role,
       createdAt: serverTimestamp()
     });
-    
-    alert(`Registered!\nEmail: ${email}\nPassword: ${password}`);
+
+    alert(`Registered!\nEmail: ${email}`);
     window.location.reload();
-    
-    authBtn.innerHTML = `Don't have an account? <u>Register here.</u>`;
-  } else {
-    alert("Passwords do not match!");
+
+  } catch (error) {
+    console.error("Error registering: ", error);
   }
 }
