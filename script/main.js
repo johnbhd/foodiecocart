@@ -8,6 +8,13 @@ import { testFirebase } from "./app.js";
 
 console.log(getMenu().then(foods => console.log(foods)));
 
+const loader = document.getElementById("loader");
+
+async function initMain(){
+    await initApp();
+    loader.style.display = "none";
+}
+
 async function initApp() {
   const foods = await getMenu();
   foodImportAll(foods);
@@ -65,6 +72,6 @@ async function initApp() {
   
 }
 document.addEventListener("DOMContentLoaded", () => {
-  initApp();
+  initMain();
   testFirebase();
 });

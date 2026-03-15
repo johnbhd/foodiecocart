@@ -6,6 +6,13 @@ const newOrdersDiv = document.getElementById("new-orders");
 const preparingDiv = document.getElementById("preparing-orders");
 const readyDiv = document.getElementById("ready-orders");
 
+const loader = document.getElementById("loader");
+
+async function initOrders() {
+    await renderOrders();
+    loader.style.display = "none";
+}
+
 async function renderOrders() {
   const orders = await getOrders()
 
@@ -37,6 +44,6 @@ async function renderOrders() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderOrders(); 
+  initOrders()
   
 });
