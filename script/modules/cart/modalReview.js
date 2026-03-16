@@ -9,7 +9,7 @@ export function modalReview(cart, total) {
                     <p>${c.name} (${c.qty}x)</p>
                 </div>
                 <div>
-                    <span>${c.price} each</span>
+                    <span>₱${c.price} each</span>
                 </div>
             </div>
         `
@@ -26,7 +26,7 @@ export function modalReview(cart, total) {
             ${orderSummary}
             <div class="summary-total">
                 <span>Total</span>
-                <span>₱ ${total.toFixed(2)}</span>
+                <span>₱${total.toFixed(2)}</span>
             </div>   
         </div>
       </div>

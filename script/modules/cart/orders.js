@@ -1,10 +1,20 @@
 // Columns
+import { getOrders } from "../api/getData.js"
+
+
 const newOrdersDiv = document.getElementById("new-orders");
 const preparingDiv = document.getElementById("preparing-orders");
 const readyDiv = document.getElementById("ready-orders");
 
-function renderOrders() {
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+const loader = document.getElementById("loader");
+
+async function initOrders() {
+    await renderOrders();
+    loader.style.display = "none";
+}
+
+async function renderOrders() {
+  const orders = await getOrders()
 
   newOrdersDiv.innerHTML = "";
   preparingDiv.innerHTML = "";
@@ -33,21 +43,7 @@ function renderOrders() {
   });
 }
 
-document.addEventListener("click", e => {
-  const btn = e.target.closest(".move-btn");
-  if (!btn) return;
-
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
-  const id = Number(btn.dataset.id);
-  const nextStatus = btn.dataset.next;
-
-  const updated = orders.map(order => {
-    if (order.id === id) order.status = nextStatus;
-    return order;
-  });
-
-  localStorage.setItem("orders", JSON.stringify(updated));
-  renderOrders();
+document.addEventListener("DOMContentLoaded", () => {
+  initOrders()
+  
 });
-
-renderOrders();

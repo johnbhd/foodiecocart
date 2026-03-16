@@ -240,10 +240,74 @@ footer {
     margin-top: 30px;
     color: #646363;
 }
-.nav-links {
-  display: none;
+/* Toast container */
+#toast-container{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Base toast */
+.toastValidation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+  border-radius: 10px;
+
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+
+  min-width: 240px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  transform: translateX(120%);
+  opacity: 0;
+
+  animation: toastIn .35s forwards;
+}
+
+/* Success */
+.toastValidation.success{
+  background: #16a34a;
+}
+
+/* Error */
+.toastValidation.error{
+  background: #dc2626;
+}
+
+/* Slide animation */
+@keyframes toastIn{
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut{
+  to{
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* icon */
+.toastValidation i{
+  font-size: 16px;
 }
 @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
     .hero-title h1 { 
         font-size: 2rem;
     }

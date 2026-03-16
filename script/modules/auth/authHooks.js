@@ -1,72 +1,93 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
 import { firebaseConfig } from "../../config/firebase-config.js";
 import { getFirestore, collection, query, where, addDoc, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+import { toastSuccess, toastError } from "../utils/utils.js";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
 export async function doLogin() {
   const email = document.getElementById("txtEmail").value;
   const password = document.getElementById("txtPassword").value;
-  
+
   if (email == "" || password == "") {
-    alert("All fields are required!");
+    toastError("All fields are required!");
     return;
   }
+
   if (!email.includes("@")) {
-    alert("Email must contain @");
+    toastError("Email must contain @");
     return;
   }
-  
+
   try {
     const q = query(collection(db, "users"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
-    
+
     if (querySnapshot.empty) {
-      alert("User not found!");
+      toastError("User not found!");
+      return;
     }
-    
+
     let userData = null;
-    
+
     querySnapshot.forEach((doc) => {
       const data = doc.data();
-      
+
       if (data.password === password) {
         userData = data;
         sessionStorage.setItem("session", JSON.stringify(data));
       }
     });
-    
+
     if (!userData) {
-      alert("Wrong password try again!");
+      toastError("Wrong password try again!");
+      return;
     }
-    
-    if (userData.role == "user") {
-      alert("Welcome user!");
-      window.location.href = "./pages/homepage.html";
+
+    if (userData.role === "user") {
+      toastSuccess("Welcome user!");
+      setTimeout(()=>{
+        window.location.href = "./pages/homepage.html";
+      },2000);
     } else {
-      alert("Welcome Admin!");
-      window.location.href = "./pages/admin/dashboard.html";
+      toastSuccess("Welcome Admin!");
+      setTimeout(()=>{
+        window.location.href = "./pages/admin/dashboard.html";
+      },2000);
     }
-    
+
   } catch (error) {
-    console.error("Error login: ",error);
+    console.error("Error login:", error);
   }
 }
-
 export async function doRegister() {
   const email = document.getElementById("txtEmail").value;
   const password = document.getElementById("txtPassword").value;
+  const confirmPassword = document.getElementById("confirmPasswordInput").value;
+
   const name = email.split("@")[0];
   const role = "user";
-  
-  const confirmPassword = document.getElementById("confirmPasswordInput").value;
+
   if (!email.includes("@")) {
-    alert("Email must contain @");
+    toastError("Email must contain @");
     return;
   }
-  if(password === confirmPassword) {
+
+  if (password !== confirmPassword) {
+    toastError("Passwords do not match!");
+    return;
+  }
+
+  try {
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      toastError("Email already registered! Try another email.");
+      return;
+    }
+
     await addDoc(collection(db, "users"), {
       name: name,
       email: email,
@@ -74,12 +95,11 @@ export async function doRegister() {
       role: role,
       createdAt: serverTimestamp()
     });
-    
-    alert(`Registered!\nEmail: ${email}\nPassword: ${password}`);
+
+    toastSuccess(`Registered!\nEmail: ${email}`);
     window.location.reload();
-    
-    authBtn.innerHTML = `Don't have an account? <u>Register here.</u>`;
-  } else {
-    alert("Passwords do not match!");
+
+  } catch (error) {
+    console.error("Error registering: ", error);
   }
 }

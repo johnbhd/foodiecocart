@@ -35,21 +35,7 @@ overlay.addEventListener('click', () => {
 let isLogin = true;
 
 
-function renderLogin() {
-  formTitle.textContent = "Login Page";
-  fieldDiv.innerHTML = `
-    <label>Email:</label>
-    <input type="email" id="txtEmail" required>
-    <label style="padding-top: 10px;">Password:</label>
-    <div class="passwordField">
-        <input type="password" id="txtPassword" required>
-        <i class="fa-solid fa-eye icon" id="passwordToggle"></i>
-    </div>
-    <button class="btn" id="btn-login">Login</button>
-  `;
-  bindLogin();
-  showPassword();
-}
+
 
 function renderRegister() {
   formTitle.textContent = "Register Page";
@@ -107,5 +93,7 @@ authBtn.addEventListener("click", () => {
   }
 });
 
-renderLogin();
-showPassword();
+document.addEventListener("DOMContentLoaded", () => {
+  bindLogin();
+  showPassword();
+});

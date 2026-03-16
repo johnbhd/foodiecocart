@@ -72,6 +72,12 @@ body {
   margin-top: 10px;
   font-size: 18px;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px auto;
+  cursor: pointer;
 }
 
 .sidebar nav a:hover {
@@ -97,7 +103,136 @@ body {
 .overlay.show {
   display: block;
 }
+/* Toast container */
+.toast{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
 
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* Toast box */
+.toast-box{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  background: #ffffff;
+  color: #1E1D27;
+
+  padding: 16px 24px;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+
+  transform: scale(0.95);
+  opacity: 0;
+
+  transition: all 0.3s ease;
+}
+
+/* Toast icon */
+.toast-icon{
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #16A34A;
+
+  font-size: 18px;
+}
+
+/* Message text */
+.toast-message{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Animation states */
+.toast.show{
+  display: flex;
+}
+
+.toast-box.show{
+  transform: scale(1);
+  opacity: 1;
+}
+/* Toast container */
+#toast-container{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Base toast */
+.toastValidation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+  border-radius: 10px;
+
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+
+  min-width: 240px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+  transform: translateX(120%);
+  opacity: 0;
+
+  animation: toastIn .35s forwards;
+}
+
+/* Success */
+.toastValidation.success{
+  background: #16a34a;
+}
+
+/* Error */
+.toastValidation.error{
+  background: #dc2626;
+}
+
+/* Slide animation */
+@keyframes toastIn{
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut{
+  to{
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* icon */
+.toastValidation i{
+  font-size: 16px;
+}
 /* ===== HAMBURGER ===== */
 .menu-btn {
   background: none;
@@ -155,7 +290,38 @@ body {
   color: gray;
   font-size: 14px;
 }
+.content{
+  position: relative;
+}
 
+.content-loader{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D2D2D2;
+  display: flex;
+  justify-content: center;
+    align-items: flex-start;
+  padding-top: 120px; 
+  z-index: 10;
+}
+
+.spinner{
+  width: 35px;
+  height: 35px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #1E1D27;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform: rotate(360deg);
+  }
+}
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
    .container {
