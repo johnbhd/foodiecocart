@@ -9,7 +9,7 @@ const db = getFirestore(app);
 
 const loader = document.getElementById("loader");
 
-async function initDashboard(){
+async function initProfile(){
   await loadUserProfile();
   updateProfile();
   loader.style.display = "none";
@@ -73,4 +73,4 @@ function updateProfile() {
   });
 }
 
-initDashboard()
+initProfile()

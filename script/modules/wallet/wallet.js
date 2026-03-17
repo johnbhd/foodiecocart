@@ -16,6 +16,13 @@ let transactions = [];
 let currentPage = 1;
 const itemsPerPage = 5;
 
+const loader = document.getElementById("loader");
+
+async function initWallet(){
+  await getOrderByUser();
+  loader.style.display = "none";
+}
+
 async function getOrderByUser() {
     const q = query(collection(db, "orders"), where("email", "==", user.email));
     const querySnapshot = await getDocs(q);
@@ -89,4 +96,4 @@ const ordersRow = pageItems.length > 0
 searchInput.addEventListener("input", () => { currentPage = 1; renderTransactions(); });
 sortSelect.addEventListener("change", () => { currentPage = 1; renderTransactions(); });
 
-getOrderByUser();
+initWallet()
