@@ -1,0 +1,98 @@
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+    font-family:Arial, sans-serif;
+}
+
+.popup-field{
+    background:#fff;
+    width:90%;
+    max-width:420px;
+    border-radius:8px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.popup-field h4{
+    margin-bottom:15px;
+    font-size:20px;
+    border-bottom:1px solid #eee;
+    padding-bottom:8px;
+}
+
+.details-content p{
+    margin:8px 0;
+    font-size:14px;
+}
+
+.details-content strong{
+    color:#333;
+}
+/* Input styling */
+.details-content input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* Input focus effect */
+.details-content input:focus {
+    border-color: #333;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* Label spacing */
+.details-content p {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 12px;
+}
+
+/* Buttons container */
+.btnModal {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Base button style */
+.btnModal button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Save button */
+#saveBtn {
+    background: #28a745;
+    color: white;
+}
+
+#saveBtn:hover {
+    background: #218838;
+}
+
+/* Close button */
+#closeBtn {
+    background: #dc3545;
+    color: white;
+}
+
+#closeBtn:hover {
+    background: #c82333;
+}
