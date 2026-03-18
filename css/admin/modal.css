@@ -8,6 +8,8 @@
     justify-content: center;    
     z-index: 999;
     font-family: Arial, sans-serif;
+    padding: 10px; /* small padding so modal doesn't touch edges on mobile */
+    overflow-y: auto; /* allow scrolling if content overflows */
 }
 
 /* ===== POPUP FIELD ===== */
@@ -18,13 +20,25 @@
     width: 100%;
     max-width: 400px;          
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-height: 90vh; /* prevent it from exceeding viewport height */
+    overflow-y: auto; /* make content scrollable inside modal */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: rgba(0,0,0,0.3) rgba(0,0,0,0.1);
 }
 
-.popup-field h4 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
+/* Optional: Webkit scrollbar for Chrome/Safari */
+.popup-field::-webkit-scrollbar {
+    width: 8px;
+}
+
+.popup-field::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.popup-field::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 4px;
 }
 
 /* ===== DETAILS CONTENT ===== */
@@ -34,10 +48,6 @@
     gap: 3px;
     margin-bottom: 12px;
     font-size: 14px;
-}
-
-.details-content strong {
-    color: #333;
 }
 
 .details-content input {
@@ -61,6 +71,7 @@
     justify-content: flex-end;
     gap: 10px;
     margin-top: 15px;
+    flex-wrap: wrap; /* wrap buttons on very small screens */
 }
 
 .btnModal button {
@@ -72,7 +83,7 @@
     transition: 0.2s ease;
 }
 
-/* Add User Buttons */
+/* ===== BUTTON COLORS ===== */
 #addSaveBtn {
     background-color: #2563EB;
     color: white;
@@ -83,32 +94,40 @@
     color: black;
 }
 
-/* Update User Buttons */
-#saveBtn {
+#saveBtn, #saveMenuBtn, #confirmDelete {
     background-color: #28a745;
     color: white;
 }
 
-#saveBtn:hover {
+#saveBtn:hover, #saveMenuBtn:hover, #confirmDelete:hover {
     background-color: #218838;
 }
 
-#closeBtn {
+#closeBtn, #closeMenuBtn, #cancelDelete {
     background-color: #dc3545;
     color: white;
 }
 
-#closeBtn:hover {
+#closeBtn:hover, #closeMenuBtn:hover, #cancelDelete:hover  {
     background-color: #c82333;
 }
 
-/* ===== DELETE BUTTON ===== */
+/* ===== DELETE ICON BUTTON ===== */
 .delete-btn {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto;
+}
+.delete-btn i {
+    font-size: 16px;
+    color: #e53935;
+    transition: 0.2s ease;
+}
+.delete-btn:hover i {
+    transform: scale(1.2);
+    color: #c62828;
 }
 .order-actions {
   display: flex;
@@ -133,4 +152,21 @@
     background-color: red;
     color: white;
     border: none;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media screen and (max-width: 480px) {
+    .popup-field {
+        padding: 15px 20px;
+        max-width: 95%;
+    }
+
+    .details-content input {
+        font-size: 13px;
+    }
+
+    .btnModal button {
+        flex: 1 1 45%;
+        font-size: 13px;
+    }
 }
