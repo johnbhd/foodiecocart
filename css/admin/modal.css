@@ -1,0 +1,136 @@
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;             
+    align-items: center;        
+    justify-content: center;    
+    z-index: 999;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== POPUP FIELD ===== */
+.popup-field {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;          
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.popup-field h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+/* ===== DETAILS CONTENT ===== */
+.details-content p {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.details-content strong {
+    color: #333;
+}
+
+.details-content input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.details-content input:focus {
+    border-color: #333;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* ===== MODAL BUTTONS ===== */
+.btnModal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btnModal button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+/* Add User Buttons */
+#addSaveBtn {
+    background-color: #2563EB;
+    color: white;
+}
+
+#addCloseBtn {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Update User Buttons */
+#saveBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#saveBtn:hover {
+    background-color: #218838;
+}
+
+#closeBtn {
+    background-color: #dc3545;
+    color: white;
+}
+
+#closeBtn:hover {
+    background-color: #c82333;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+}
+.order-actions {
+  display: flex;
+  align-items: center;
+}
+.delete-btn i {
+    font-size: 16px;
+    color: #e53935;
+    transition: 0.2s ease;
+}
+
+.delete-btn:hover i {
+    transform: scale(1.2);
+    color: #c62828;
+}
+#yesBtn {
+    background-color: green;
+    color: white;
+    border: none;
+}
+#noBtn {
+    background-color: red;
+    color: white;
+    border: none;
+}
