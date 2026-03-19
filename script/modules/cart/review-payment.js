@@ -39,7 +39,7 @@ export function reviewPaymentOrders(cart, total) {
 
         // Valid payment selected
         modal.style.display = "none";
-        checkoutOrder(cart, total);
+        checkoutOrder(cart, total, "cash");
 
     });
 

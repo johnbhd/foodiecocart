@@ -78,7 +78,7 @@ export function renderCart(orderCart) {
 }
 
 
-export function checkoutOrder(cart, total) {
+export function checkoutOrder(cart, total, type) {
   if (cart.length === 0) return;
 
   const orders = JSON.parse(localStorage.getItem("orders")) || [];
@@ -94,6 +94,7 @@ export function checkoutOrder(cart, total) {
     total: total,
     email: sessionUser.email || "NA",
     name: sessionUser.name,
+    type: type,
     role: sessionUser.role,
     date: new Date().toLocaleString(),
     status: "new"
