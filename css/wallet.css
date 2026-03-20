@@ -5,14 +5,91 @@
 }
 
 .wallet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 }
 .wallet-header h3 {
     font-size: 1.45rem;
   color: #333;
+}
+.wallet-scannerIcon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.wallet-scannerIcon img {
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  border-radius: 5px;
+}
+/* MODAL SCANNER */
+.modal-con {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.6); /* overlay */
+    z-index: 999;
 }
 
+.modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    background: #1E1D27;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
+.modal-title h2 {
+    font-size: 1.4rem;
+}
+.modal-btn button {
+    width: 100%;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.modal-btn button{
+    background-color: #494955;
+    color: white;
+}
+
+.modal-btn button:hover{
+    background-color: rgb(156, 144, 144);
+}
+
+#reader {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 .balance-card {
   background: linear-gradient(135deg, #00c4cc 0%, #01999e 100%);
   border-radius: 16px;

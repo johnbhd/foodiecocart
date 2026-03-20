@@ -14,7 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 
 <body>
@@ -52,6 +53,8 @@
 
   <!-- Overlay -->
   <div id="overlay" class="overlay"></div>
+  <!-- QR CODE Scanner modal -->
+  <div class="modal-con"></div>
   <!-- Receipt Modal --> 
   <div id="receiptModal" class="receipt-modal"></div>
   <!-- Receipt Actions -->
@@ -94,10 +97,16 @@
         </div>
         <div class="wallet-container">
           <div class="wallet-header">
-            <h3>Wallet Balance</h3>
-            <p class="history-subtitle">
-              Monitor your expense in aufoodieco
-            </p>
+            <div>
+              <h3>Wallet Balance</h3>
+              <p class="history-subtitle">
+                Monitor your expense in aufoodieco
+              </p>
+            </div>
+            <div class="wallet-scannerIcon" id="wallet-scannerIcon">
+              <p>Scan QR Payment</p>
+              <img src="../imgs/scanner.jpg" alt="QR CODE Scanner">
+            </div>
           </div>
 
           <div class="balance-card">
@@ -117,7 +126,7 @@
           </div>
 
 
-            <div class="expense-section">
+            <div class="expense-section" id="expense-section">
               <div class="expense-header">
                 <div class="header-expense">
                   <h3>Expense Monitoring</h3>
@@ -178,6 +187,7 @@
 <script type="module" src="../script/modules/utils/script.js"></script>
 <script type="module" src="../script/modules/wallet/wallet.js"></script>
 <script type="module" src="../script/modules/wallet/expenseMonitoring.js"></script>
+<script type="module" src="../script/modules/wallet/qrScanner/qrScannerModal.js"></script>
 
 </body>
 </html>

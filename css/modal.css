@@ -104,7 +104,27 @@
     flex-direction: column;
     gap: 10px;
 }
-
+.modal-qr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qr-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-60%, -80%);
+    border-radius: 10px;
+    background: white; /* important for readability */
+    padding: 5px;
+}
+.qr-logo  img {
+    height: 20px;
+     transform: translate(-25%, -20%);
+    width: 20px;
+}
 .modal-payment div div {
     display: flex;
     align-items: center;

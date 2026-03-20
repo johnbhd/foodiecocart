@@ -1,3 +1,12 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { firebaseConfig } from "../../config/firebase-config.js";
+import { getFirestore, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+import { toastSuccess, toastError } from "../utils/utils.js";
+import { openReceipt } from "./modalReceipt.js";
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const ctx = document.getElementById("expenseChart");
 
 new Chart(ctx, {
