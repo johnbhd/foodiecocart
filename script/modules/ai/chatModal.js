@@ -1,35 +1,36 @@
-let globalData = {};
-let greetingData = {};
+let chatDataSets = [];
 let isDataLoaded = false;
+
+const jsonFiles = [
+    "../data/global.json",
+    "../data/identity.json",
+    "../data/help.json"
+];
 
 async function loadChatData() {
     try {
-        const globalRes = await fetch("../data/global.json");
-        const globalText = await globalRes.text();
+        const responses = await Promise.all(
+            jsonFiles.map(file => fetch(file))
+        );
 
-        console.log("GLOBAL RAW:", globalText);
+        const texts = await Promise.all(
+            responses.map(res => res.text())
+        );
 
-        const greetRes = await fetch("../data/greeting.json");
-        const greetText = await greetRes.text();
-
-        console.log("GREETING RAW:", greetText);
-
-        globalData = JSON.parse(globalText);
-        greetingData = JSON.parse(greetText);
+        chatDataSets = texts.map(text => JSON.parse(text));
 
         isDataLoaded = true;
-
-        console.log("✅ JSON PARSED SUCCESS");
+        console.log("JSON loaded successfully");
     } catch (error) {
-        console.error("❌ REAL ERROR:", error);
+        console.error("JSON load error:", error);
     }
 }
+
 loadChatData();
 
 function toggleChat() {
-    const chatModal = document.getElementById("chat-modal");
-    chatModal.style.display =
-        chatModal.style.display === "flex" ? "none" : "flex";
+    const modal = document.getElementById("chat-modal");
+    modal.style.display = modal.style.display === "flex" ? "none" : "flex";
 }
 
 function closeChat() {
@@ -52,7 +53,7 @@ function similarity(a, b) {
 
     for (let i = 1; i <= b.length; i++) {
         for (let j = 1; j <= a.length; j++) {
-            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+            if (b[i - 1] === a[j - 1]) {
                 matrix[i][j] = matrix[i - 1][j - 1];
             } else {
                 matrix[i][j] = Math.min(
@@ -69,37 +70,61 @@ function similarity(a, b) {
 }
 
 function getBotResponse(message) {
+    if (!isDataLoaded) return "Loading... ⏳";
+
     const msg = normalize(message);
+
+    for (const dataset of chatDataSets) {
+        for (const key in dataset) {
+            if (msg === normalize(key)) {
+                return dataset[key];
+            }
+        }
+    }
+
+    const msgWords = msg.split(/\s+/).filter(Boolean);
+    if (msgWords.length === 1) {
+        return "Sorry 😅 Hindi ko ma-gets yung '" + message + "'. Subukan mo 'menu', 'recommend', 'gutom' o 'hello' 😋";
+    }
+
+    for (const dataset of chatDataSets) {
+        for (const key in dataset) {
+            const nk = normalize(key);
+            if (msg.startsWith(nk + " ") || msg.endsWith(" " + nk) || msg === nk) {
+                return dataset[key];
+            }
+        }
+    }
+
+    for (const dataset of chatDataSets) {
+        for (const key in dataset) {
+            const keyWords = normalize(key).split(" ").filter(Boolean);
+            if (keyWords.length > 0 && keyWords.every(w => msgWords.includes(w))) {
+                return dataset[key];
+            }
+        }
+    }
 
     let bestMatch = null;
     let highestScore = 0;
 
-    const checkData = (data) => {
-        for (let key in data) {
+    for (const dataset of chatDataSets) {
+        for (const key in dataset) {
             const cleanKey = normalize(key);
-
-            if (msg.replace(/\s/g, "").includes(cleanKey.replace(/\s/g, ""))) {
-                return data[key];
-            }
-
             const score = similarity(msg, cleanKey);
 
             if (score > highestScore) {
                 highestScore = score;
-                bestMatch = data[key];
+                bestMatch = dataset[key];
             }
         }
-    };
+    }
 
-    const greetMatch = checkData(greetingData);
-    if (greetMatch) return greetMatch;
+    if (highestScore >= 0.68) {
+        return bestMatch;
+    }
 
-    const globalMatch = checkData(globalData);
-    if (globalMatch) return globalMatch;
-
-    if (highestScore > 0.4) return bestMatch;
-
-    return "Sorry 😅 I didn't understand that.";
+    return "Sorry 😅 Hindi ko ma-gets yung sinabi mo. Subukan mo 'menu', 'gutom ako', 'recommend' o 'salamat' 😋";
 }
 
 function sendMessage() {
@@ -120,12 +145,7 @@ function sendMessage() {
     setTimeout(() => {
         const aiMsg = document.createElement("p");
         aiMsg.className = "chat-msg ai";
-
-        if (!isDataLoaded) {
-            aiMsg.textContent = "Loading... ⏳";
-        } else {
-            aiMsg.textContent = getBotResponse(message);
-        }
+        aiMsg.textContent = getBotResponse(message);
 
         chatBody.appendChild(aiMsg);
         chatBody.scrollTop = chatBody.scrollHeight;
@@ -133,17 +153,9 @@ function sendMessage() {
 }
 
 document.addEventListener("click", (e) => {
-    if (e.target.closest(".chatAssistant-icon")) {
-        toggleChat();
-    }
-
-    if (e.target.closest("#close-chat")) {
-        closeChat();
-    }
-
-    if (e.target.closest("#send-chat")) {
-        sendMessage();
-    }
+    if (e.target.closest(".chatAssistant-icon")) toggleChat();
+    if (e.target.closest("#close-chat")) closeChat();
+    if (e.target.closest("#send-chat")) sendMessage();
 });
 
 document.addEventListener("keydown", (e) => {

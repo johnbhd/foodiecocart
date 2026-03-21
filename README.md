@@ -61,7 +61,7 @@ AUfoodieco is a self-service canteen ordering system developed for Arellano Univ
 2. Browse homepage / menu page
 3. Select items and add to cart
 4. Review order and view total
-5. Checkout and choose payment method (Cash / Digital Wallet / QR Code)
+5. Checkout and choose payment method (Cash / Card / Digital Wallet / QR Code)
 6. Track order status in real-time
 7. View past orders and receipts
 8. Manage profile and digital wallet balance
@@ -93,4 +93,4 @@ AUfoodieco is a self-service canteen ordering system developed for Arellano Univ
 
 ## Contributors
 
-* AUfoodieco Team – Arellano
+* AUfoodieco Team – Arellano University Juan Sumulong Campus
