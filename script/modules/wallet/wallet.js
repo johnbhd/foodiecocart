@@ -105,7 +105,7 @@ document.addEventListener("click", (e) => {
         if (!order) return;
         sessionStorage.setItem("selectedOrder", JSON.stringify(order));
         
-        openReceipt();
+        openReceipt(order);
 
 
     }
