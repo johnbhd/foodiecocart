@@ -14,26 +14,26 @@
 <body>
 
 <header>
-    <nav class="nav">
-        <div class="con-nav">
-            <div class="nav-title">
-                <img src="../imgs/aulogo.png" alt="Logo">
-                <h4>AUFoodieCo</h4>
+  <div id="overlay" class="overlay"></div>
+    <header>
+        <nav class="nav">
+            <div class="con-nav">
+                <div class="nav-title">
+                    <img src="../imgs/aulogo.png" alt="AUFoodieCo Canteen Ordering System Logo">
+                    <h4>AUFoodieCo</h4>
+                </div>
+                <button id="menu-btn" class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./features.html">Features</a></li>
+                    <li><a href="./developers.html">Developers</a></li>
+                </ul>
             </div>
-
-            <button id="menu-btn" class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./features.html">Features</a></li>
-                <li><a href="./developers.html">Developers</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<main>
+        </nav>
+    </header>
 <main>
 
     <!-- FEATURES -->
@@ -123,5 +123,9 @@
 
 
 </main>
+<footer>
+    <p>&copy; <span id="year"></span> AUFoodieCo</p>
+</footer>
+<script src="../script/modules/utils/homeNav.js"></script>
 </body>
 </html>

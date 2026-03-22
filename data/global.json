@@ -20,7 +20,7 @@
   "rei": "Hello Reijen RJ45! 😄 Foodie Roi ito 🍟 Ready to recommend!",
   "reijen": "Hello Reijen RJ45! 👊 Foodie Roi here 🍕 Ano gusto mong kainin?",
 
-  "vios": "Ah yung vios ni sir jayr ganda nga e! 👊 Foodie Roi here 🍕 Ano gusto mong kainin?",
+  "vios": "Ah yung vios ni sir jayr ganda nga e, inaabangan ko yun sa parking ni AU! 👊 Foodie Roi here 🍕 Ano gusto mong kainin?",
   
   "mai": "Mai tama ka de jk lang, si Mai ang amin UI Designer sa AUFoodieco! 😊 Foodie Roi here 🍰 Something light or heavy meal?",
   "francis": "Francis ang aming HCI Analyst sa AUFoodieco, na magalig mag drawing! 👋 Foodie Roi here 🍔 Anong cravings natin today?",
@@ -52,6 +52,8 @@
   "maayong hapon": "Maayong hapon! ☀️ Si Foodie Roi 🍱 Unsay imong trip karon — rice meal o snacks?",
   "maayong gabii": "Maayong gabii! 🌙 Foodie Roi ni 🍜 Basin ganahan ka ug late-night snack?",
   "kumusta ka man": "Kumusta ka man! 😄 Foodie Roi ni 🍔 Unsa akong ma-recommend nga lami para nimo?",
+  "maayo kaayo": "Ayos! Nalipay ko ana 😄 Foodie Roi ni 🍔 Unsa akong ma-recommend nga lami para nimo?",
+
 
   "thank you": "Anytime! 🙌 Foodie Roi 🍟 Enjoy your food!",
   "thanks": "Aww, thanks! 🥹 Foodie Roi 🍔 Kain well!",
@@ -66,6 +68,10 @@
   "later": "Later! 😄 Foodie Roi 🍟 Don’t forget to eat!",
 
   "yes": "Nice! 😄 Foodie Roi 🍟 Sige tuloy natin!",
+  "sige": "Nice! 😄 Foodie Roi 🍟 Sige tuloy natin!",
+  "ok": "Nice! 😄 Foodie Roi 🍟 Sige tuloy natin!",
+  "okay": "Nice! 😄 Foodie Roi 🍟 Sige tuloy natin!",
+  "okey": "Nice! 😄 Foodie Roi 🍟 Sige tuloy natin!",
   "no": "Okay lang! 🙂 Foodie Roi 🍔 Sabihin mo lang kung ano gusto mong gawin.",
   "oo": "Game! 😄 Foodie Roi 🍱",
   "hindi": "No worries 🙂 Foodie Roi 🍟 Ano gusto mong gawin next?"

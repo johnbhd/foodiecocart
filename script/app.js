@@ -12,10 +12,8 @@ export async function testFirebase() {
         connected: true,
         time: new Date()
       })
-      const get = JSON.parse(sessionStorage.getItem("session"));
-      console.log(db)
-      textCon.textContent = get ?? "firebase connected";
-      console.log(get);
+
+ 
   } catch (error) {
       textCon.textContent = "Failed Connection firebase";
     console.log("Error firebase", error);

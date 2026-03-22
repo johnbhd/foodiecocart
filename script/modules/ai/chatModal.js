@@ -43,49 +43,34 @@ async function loadMenu() {
     menuCache = await getMenu();
 }
 
-loadMenu();
-
+if (menuCache.length === 0) await loadMenu();
 async function findFoodByName(message) {
-
     const foods = menuCache;
-
     const msg = normalize(message);
 
     for (const food of foods) {
-
         if (!food.name) continue;
 
-        const name = normalize(food.name);
+        const name = normalize(food.name); // "hotdog"
+        const msgWords = msg.split(" ");   // ["gusto", "ko", "ng", "hotdog"]
 
-        if (msg.includes(name) || name.includes(msg)) {
+        const nameWords = name.split(" ");
 
+        if (nameWords.some(word => msg.includes(word))) {
             let desc = "Masarap na pagkain 😋";
             let img = "";
 
-            // ✅ safe description
             if (food.description && typeof food.description === "object") {
-
                 const langs = Object.keys(food.description);
-
                 if (langs.length > 0) {
-
-                    const randomLang =
-                        langs[Math.floor(Math.random() * langs.length)];
-
+                    const randomLang = langs[Math.floor(Math.random() * langs.length)];
                     desc = food.description[randomLang];
                 }
             }
 
-            // ✅ safe image
-            if (food.img) {
-                img = food.img;
-            }
+            if (food.img) img = food.img;
 
-            return {
-                name: food.name,
-                desc: desc,
-                img: img
-            };
+            return { name: food.name, desc, img, price: food.price };
         }
     }
 
@@ -275,6 +260,7 @@ async function sendMessage() {
 
                     <div>
                         <b>${res.name}</b><br>
+                        ${res.price} pesos<br>
                         ${res.desc}
                     </div>
 
