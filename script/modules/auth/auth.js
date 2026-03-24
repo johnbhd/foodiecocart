@@ -24,7 +24,7 @@ btnAbout.addEventListener('click', () => {
   window.location.href = "./pages/features.html"
 })
 btnFeatures.addEventListener('click', () => {
-  window.location.href = "./pages/developers.html"
+  window.location.href = "./pages/features.html"
 })
 
 btnGuest.addEventListener('click', () => {
